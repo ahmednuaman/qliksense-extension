@@ -18,7 +18,6 @@ let config = {
   context: src,
   cache: true,
   entry: {
-    'wrapper.js': '../qlik/wrapper.js',
     'script.js': './js/app.js',
     'asset/css/app.css': './scss/app.scss'
   },
