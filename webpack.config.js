@@ -48,6 +48,7 @@ let config = {
     }
   },
   externals: [{
+    'jquery': true,
     'qlik': true
   }],
   plugins: [
