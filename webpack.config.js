@@ -93,6 +93,8 @@ if (PRODUCTION) {
   config.plugins.push(
     new WebpackCopyPlugin([{
       from: '../qlik'
+    }, {
+      from: '../node_modules/jquery/dist/jquery.js'
     }])
   )
 }
