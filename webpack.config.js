@@ -18,6 +18,7 @@ let config = {
   context: src,
   cache: true,
   entry: {
+    'wrapper.js': '../qlik/wrapper.js',
     'script.js': './js/app.js',
     'asset/css/app.css': './scss/app.scss'
   },
@@ -53,7 +54,7 @@ let config = {
     extensions: ['', '.js', '.jsx', '.json', '.jpg', '.jpeg', '.gif', '.png', '.svg'],
     alias: {
       img: `${src}/img/`,
-      qlik: `${src}/qlik/wrapper`
+      qlik: `${src}/qlik/qlik`
     }
   },
   externals: [{
@@ -93,8 +94,6 @@ if (PRODUCTION) {
   config.plugins.push(
     new WebpackCopyPlugin([{
       from: '../qlik'
-    }, {
-      from: '../node_modules/jquery/dist/jquery.js'
     }])
   )
 }
