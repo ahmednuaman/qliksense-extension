@@ -1,15 +1,15 @@
-import $ from 'jquery'
-import pkg from '../../package.json'
+import qlik from 'qlik'
 
-const EXT_NAME = pkg.name
-const URL_PREFIX = Qva.Remote + (Qva.Remote.indexOf('?') >= 0 ? '&' : '?') + `public=only&name=Extensions/${EXT_NAME}/`
+export default {
+  support: {
+    snapshot: true,
+    export: true,
+    exportData: false
+  },
 
-$(() => {
-  Qva.LoadCSS(`${URL_PREFIX}asset/css/app.css`)
+  paint: ($element) => {
+    $element.html('Hello world!')
 
-  Qv.AddExtension(EXT_NAME, function () {
-    console.log(this.Data.Rows)
-
-    this.Element.innerHTML = '<div class="some-element">hello!</div>'
-  })
-})
+    return qlik.Promise.resolve()
+  }
+}

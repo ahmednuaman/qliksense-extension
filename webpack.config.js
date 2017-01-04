@@ -24,7 +24,8 @@ let config = {
   output: {
     filename: '[name]',
     publicPath: '',
-    path: path.resolve(CWD, 'build')
+    path: path.resolve(CWD, 'build'),
+    libraryTarget: 'amd'
   },
   devtool: 'inline-source-map',
   module: {
@@ -51,9 +52,13 @@ let config = {
   resolve: {
     extensions: ['', '.js', '.jsx', '.json', '.jpg', '.jpeg', '.gif', '.png', '.svg'],
     alias: {
-      img: `${src}/img/`
+      img: `${src}/img/`,
+      qlik: `${src}/qlik/wrapper`
     }
   },
+  externals: [{
+    'qlik': true
+  }],
   plugins: [
     new WebpackCleanPlugin(['build']),
     new webpack.DefinePlugin({
@@ -62,9 +67,7 @@ let config = {
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.NoErrorsPlugin(),
     new WebpackProgressBarPlugin(),
-    new WebpackExtractTextPlugin('[name]', {
-      allChunks: true
-    }),
+    new WebpackExtractTextPlugin('[name]'),
     new WebpackCopyPlugin(['css', 'img', 'font'].map((dir) =>
       ({
         from: '../qlik/folder-definition.xml',

@@ -10,7 +10,7 @@
     "start": "npm run local",
     "test": "standard",
     "watch": "concurrently \"npm run webpack -- --watch -d\" \"npm run watch:lint\"",
-    "watch:lint": "onchange \"**/*.js\" \"**/*.jsx\" -- standard",
+    "watch:lint": "onchange \"**/*.js\" -- standard",
     "webpack": "webpack --colors"
   },
   "repository": {
@@ -63,15 +63,11 @@
     ]
   },
   "standard": {
-    "globals": [
-      "Qv",
-      "Qva"
-    ],
     "ignore": [
       "build"
     ]
   },
   "dependencies": {
-    "jquery": "^3.1.1"
+    "angular": "^1.6.1"
   }
 }
