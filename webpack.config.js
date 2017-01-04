@@ -92,6 +92,7 @@ if (PRODUCTION) {
 } else {
   config.plugins.push(
     new WebpackCopyPlugin([{
+      ignore: '.DS*',
       from: '../qlik'
     }])
   )
