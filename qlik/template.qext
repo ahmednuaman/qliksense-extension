@@ -1,0 +1,8 @@
+{
+  "name": "qliksense-extension",
+  "description": "A simple boilerplate for writing Qlik Sense extensions in Javascript",
+  "icon": "extension",
+  "type": "visualization",
+  "version": "1.0.0",
+  "author": "Ahmed Nuaman (ahmed@ahmednuaman.com)"
+}

@@ -68,18 +68,10 @@ let config = {
     new webpack.NoErrorsPlugin(),
     new WebpackProgressBarPlugin(),
     new WebpackExtractTextPlugin('[name]'),
-    new WebpackCopyPlugin(['css', 'img', 'font'].map((dir) =>
-      ({
-        from: '../qlik/folder-definition.xml',
-        to: `./asset/${dir}/definition.xml`
-      })
-    ).concat(
-      [{
-        from: '../qlik/definition.xml'
-      }, {
-        from: '../qlik/icon.png'
-      }]
-    ))
+    new WebpackCopyPlugin([{
+      from: '../qlik/template.qext',
+      to: `${PKG.name}.qext`
+    }])
   ]
 }
 

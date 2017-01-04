@@ -1,3 +1,4 @@
+import $ from 'jquery'
 import qlik from 'qlik'
 
 export default {
@@ -7,9 +8,7 @@ export default {
     exportData: false
   },
 
-  paint: ($element) => {
-    $element.html('Hello world!')
-
-    return qlik.Promise.resolve()
+  paint: ($element, layout) => {
+    $element.html(`Hello world, My ID is ${layout}!`)
   }
 }
