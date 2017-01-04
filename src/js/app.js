@@ -1,14 +1,12 @@
 import $ from 'jquery'
 import qlik from 'qlik'
 
-export default {
-  support: {
-    snapshot: true,
-    export: true,
-    exportData: false
-  },
+export const support = {
+  snapshot: true,
+  export: true,
+  exportData: false
+}
 
-  paint: ($element, layout) => {
-    $element.html(`Hello world, My ID is ${layout}!`)
-  }
+export const paint = ($element, layout) => {
+  $element.html(`Hello world, My ID is ${layout}!`)
 }
