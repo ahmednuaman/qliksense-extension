@@ -2,6 +2,8 @@ import $ from 'jquery'
 import css from '../scss/app'
 import qlik from 'qlik'
 
+let drawn = false
+
 export const support = {
   snapshot: true,
   export: true,
@@ -9,8 +11,14 @@ export const support = {
 }
 
 export const paint = ($element, layout) => {
-  $element.html(`Hello world, My ID is ${layout}!`)
-  console.log($, qlik)
+  if (!drawn) {
+    drawn = true
 
-  $('<style>').html(css).appendTo('head')
+    $element.html(`Hello world, My ID is ${layout}!`)
+    console.log($, qlik)
+
+    $('<style>').html(css).appendTo('head')
+  } else {
+    $element.html('Redrawn yo')
+  }
 }
