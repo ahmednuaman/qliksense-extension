@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?> 
+<ExtensionObject Label="Ext" type="object">
+  <Dimension Label="Dimension 1" Initial="" TargetName="Dimension 1" />
+  <Dimension Label="Dimension 2" Initial="" TargetName="Dimension 2" />
+  <Measurement Label="Measure 1" Initial="" TargetName="Measure 1" />
+  <Measurement Label="Measure 2" Initial="" TargetName="Measure 2" />
+  <Initiate Name="Caption.Text" value="Ext" />
+</ExtensionObject>
