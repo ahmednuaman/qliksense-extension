@@ -12,6 +12,7 @@ const src = path.resolve(CWD, 'src')
 const webpack = require('webpack')
 const WebpackCleanPlugin = require('clean-webpack-plugin')
 const WebpackCopyPlugin = require('copy-webpack-plugin')
+const WebpackStatsWriterPlugin = require('webpack-stats-plugin').StatsWriterPlugin
 const WebpackZipPlugin = require('zip-webpack-plugin')
 
 let config = {
@@ -78,6 +79,11 @@ if (PRODUCTION) {
       compress: {
         warnings: false
       }
+    }),
+    new WebpackStatsWriterPlugin({
+      filename: 'wbfolder.wbl',
+      fields: null,
+      transform: (stats, opts) => stats.assets.map(({ name }) => name).join(';\n')
     }),
     new WebpackZipPlugin({
       filename: ZIP_FILE,
