@@ -68,9 +68,6 @@ let config = {
       to: `${PKG.name}.qext`
     }, {
       from: '../qlik/preview.png'
-    }, {
-      from: '../node_modules/leonardo-ui/dist',
-      to: 'leonardo-ui/'
     }])
   ]
 }
@@ -95,6 +92,9 @@ if (PRODUCTION) {
     new WebpackCopyPlugin([{
       ignore: '.DS*',
       from: '../qlik'
+    }, {
+      from: '../node_modules/leonardo-ui/dist',
+      to: 'leonardo-ui/'
     }])
   )
 }
