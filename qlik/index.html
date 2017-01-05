@@ -10,13 +10,23 @@
   <script>
     requirejs.config({
       paths: {
-        angular: 'https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js',
+        angular: 'https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min',
         jquery: 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min'
+      },
+      shim: {
+        angular: {
+          exports: 'angular'
+        }
       }
     })
 
-    require(['./script.js'], (app) => {
-      app.paint($('#container'), {
+    require([
+      'jquery',
+      'angular',
+      './script.js'
+    ], ($, angular, app) => {
+      const $element = $('#container')
+      const layout = {
         qHyperCube: {
           qDimensionInfo: [],
           qMeasureInfo: [],
@@ -32,7 +42,23 @@
           qInSelections: [],
           qMadeSelections: []
         }
-      })
+      }
+
+      if (app.paint) {
+        app.paint.call(window, $element, layout)
+      } else if (app.controller && app.template) {
+        const moduleName = 'qliksense-extension'
+
+        $element.html(app.template)
+
+        angular
+          .module(moduleName, [])
+          .directive('qvExtension', () => ({
+            controller: app.controller
+          }))
+
+        angular.bootstrap($element, [moduleName])
+      }
     })
   </script>
 </body>

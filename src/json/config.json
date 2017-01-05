@@ -1,0 +1,9 @@
+{
+  "definition": {},
+  "initialProperties": {},
+  "support": {
+    "snapshot": true,
+    "export": true,
+    "exportData": false
+  }
+}

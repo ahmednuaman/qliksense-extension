@@ -10,7 +10,7 @@
     "start": "npm run local",
     "test": "standard",
     "watch": "concurrently \"npm run webpack -- --watch -d\" \"npm run watch:lint\"",
-    "watch:lint": "onchange \"**/*.js\" -- standard",
+    "watch:lint": "onchange \"**/*.js\" \"qlik/index.html\" -- standard",
     "webpack": "webpack --colors"
   },
   "repository": {
@@ -38,7 +38,7 @@
     "copy-webpack-plugin": "^4.0.1",
     "cross-env": "^3.1.4",
     "css-loader": "^0.26.1",
-    "jquery": "^3.1.1",
+    "html-loader": "^0.4.4",
     "json-loader": "^0.5.4",
     "node-sass": "^4.1.1",
     "onchange": "^3.2.1",
@@ -63,5 +63,8 @@
       "build"
     ]
   },
-  "dependencies": {}
+  "dependencies": {
+    "angular": "^1.6.1",
+    "jquery": "^3.1.1"
+  }
 }

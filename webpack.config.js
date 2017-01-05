@@ -27,6 +27,9 @@ let config = {
   devtool: 'inline-source-map',
   module: {
     loaders: [{
+      test: /\.html$/,
+      loader: 'html'
+    }, {
       test: /\.json$/,
       loader: 'json'
     }, {
@@ -41,7 +44,7 @@ let config = {
     }]
   },
   resolve: {
-    extensions: ['', '.js', '.json', '.scss'],
+    extensions: ['', '.js', '.json', '.scss', '.html'],
     alias: {
       img: `${src}/img/`,
       qlik: `${src}/qlik/qlik`
