@@ -1,6 +1,9 @@
-import template from '../html/template'
 import './style'
-
 export * from '../json/config'
+
+// for angular
 export * from './controller'
-export { template }
+export const template = require('../html/template')
+
+// for jquery
+// export * from './paint'
