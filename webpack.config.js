@@ -1,16 +1,18 @@
 'use strict'
 
+const BUILD_DIR = 'build'
 const CWD = process.cwd()
 const ENV = process.env.NODE_ENV || 'development'
 const PKG = require('./package.json')
 const PRODUCTION = ENV === 'production'
+const ZIP_FILE = `${PKG.name}.zip`
 
 const path = require('path')
 const src = path.resolve(CWD, 'src')
 const webpack = require('webpack')
-const WebpackArchivePlugin = require('webpack-archive-plugin')
 const WebpackCleanPlugin = require('clean-webpack-plugin')
 const WebpackCopyPlugin = require('copy-webpack-plugin')
+const WebpackZipPlugin = require('zip-webpack-plugin')
 
 let config = {
   context: src,
@@ -21,7 +23,7 @@ let config = {
   output: {
     filename: '[name]',
     publicPath: '',
-    path: path.resolve(CWD, 'build'),
+    path: path.resolve(CWD, BUILD_DIR),
     libraryTarget: 'amd'
   },
   devtool: 'inline-source-map',
@@ -55,7 +57,7 @@ let config = {
     'qlik': true
   }],
   plugins: [
-    new WebpackCleanPlugin(['build']),
+    new WebpackCleanPlugin([BUILD_DIR, ZIP_FILE]),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(ENV)
     }),
@@ -75,9 +77,10 @@ if (PRODUCTION) {
         warnings: false
       }
     }),
-    new WebpackArchivePlugin({
-      format: 'zip',
-      output: PKG.name
+    new WebpackZipPlugin({
+      filename: ZIP_FILE,
+      pathPrefix: PKG.name,
+      exclude: /^\..*/
     })
   )
 

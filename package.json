@@ -46,8 +46,8 @@
     "standard": "^8.6.0",
     "style-loader": "^0.13.1",
     "webpack": "^1.14.0",
-    "webpack-archive-plugin": "^2.0.0",
-    "webpack-dev-middleware": "^1.9.0"
+    "webpack-dev-middleware": "^1.9.0",
+    "zip-webpack-plugin": "^0.3.0"
   },
   "babel": {
     "plugins": [
