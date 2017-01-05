@@ -66,6 +66,8 @@ let config = {
     new WebpackCopyPlugin([{
       from: '../qlik/template.qext',
       to: `${PKG.name}.qext`
+    }, {
+      from: '../qlik/preview.png'
     }])
   ]
 }
