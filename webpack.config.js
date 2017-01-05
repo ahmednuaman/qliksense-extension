@@ -68,6 +68,9 @@ let config = {
       to: `${PKG.name}.qext`
     }, {
       from: '../qlik/preview.png'
+    }, {
+      from: '../node_modules/leonardo-ui/dist',
+      to: 'leonardo-ui/'
     }])
   ]
 }
