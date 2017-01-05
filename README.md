@@ -16,4 +16,4 @@ foundation that achieved a number of things:
 2. Open your terminal, `cd` into the repo, and run `npm install`
 3. Open `src/js/app.js`; if you want to use Angular then comment out the jQuery bit, and vice versa
 4. Run `npm start` and start developing
-5. When you want to deploy run `npm run deploy` and a .zip file will be created at the repo's root
+5. When you want to deploy run `npm run deploy` and a .zip file will be created at the repo's build folder
