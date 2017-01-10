@@ -54,6 +54,7 @@ let config = {
     }
   },
   externals: [{
+    'angular': true,
     'jquery': true,
     'qlik': true
   }],
