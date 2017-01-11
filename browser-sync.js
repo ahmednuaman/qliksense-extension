@@ -30,5 +30,5 @@ require('browser-sync')
       `${DIR}/*.html`,
       `${DIR}/*.js`
     ],
-    open: 'external'
+    open: 'local'
   }, () => console.log('Browsersync is running...'))
