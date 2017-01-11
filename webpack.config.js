@@ -36,6 +36,9 @@ let config = {
         pretty: !PRODUCTION
       }
     }, {
+      test: /\.html$/,
+      loader: 'html'
+    }, {
       test: /\.json$/,
       loader: 'json'
     }, {
@@ -53,7 +56,7 @@ let config = {
     }]
   },
   resolve: {
-    extensions: ['', '.js', '.json', '.scss', '.pug'],
+    extensions: ['', '.js', '.json', '.scss', '.pug', '.html'],
     alias: {
       img: `${src}/img/`,
       qlik: `${src}/qlik/qlik`
