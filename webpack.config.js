@@ -30,8 +30,11 @@ let config = {
   devtool: 'inline-source-map',
   module: {
     loaders: [{
-      test: /\.html$/,
-      loader: 'html'
+      test: /\.pug$/,
+      loader: 'pug',
+      query: {
+        pretty: !PRODUCTION
+      }
     }, {
       test: /\.json$/,
       loader: 'json'
@@ -40,14 +43,17 @@ let config = {
       exclude: [
         /node_modules/
       ],
-      loader: 'babel?compact=false'
+      loader: 'babel',
+      query: {
+        compact: false
+      }
     }, {
       test: /\.scss$/,
       loader: 'style!css!sass'
     }]
   },
   resolve: {
-    extensions: ['', '.js', '.json', '.scss', '.html'],
+    extensions: ['', '.js', '.json', '.scss', '.pug'],
     alias: {
       img: `${src}/img/`,
       qlik: `${src}/qlik/qlik`
@@ -99,9 +105,6 @@ if (PRODUCTION) {
     new WebpackCopyPlugin([{
       ignore: '.DS*',
       from: '../qlik'
-    }, {
-      from: '../node_modules/leonardo-ui/dist',
-      to: 'leonardo-ui/'
     }])
   )
 }
