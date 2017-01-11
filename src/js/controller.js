@@ -6,7 +6,16 @@ export const paint = ($element, layout) => {
 
 export const controller = ['$scope', ($scope) => {
   const refresh = () => {
-    $scope.layout = store.getState()
+    const layout = store.getState()
+
+    $scope.layout = layout
+    $scope.userName = layout.prop.userName
+  }
+
+  $scope.submit = ($event) => {
+    $event.preventDefault()
+
+    console.log('You submitted some data', $scope.userName)
   }
 
   store.subscribe(refresh)

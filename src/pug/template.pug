@@ -1,1 +1,4 @@
-div(qv-extension) {{layout | json}}
+div(qv-extension)
+  form(ng-submit='submit($event)')
+    input(type='text' ng-model='userName')
+    button(type='submit') Go!
