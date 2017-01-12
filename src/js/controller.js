@@ -1,4 +1,5 @@
 import { saveAction, store } from './redux'
+import qlik from 'js/qlik'
 
 export const paint = ($element, layout) => {
   saveAction(layout)

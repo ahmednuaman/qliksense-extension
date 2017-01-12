@@ -58,15 +58,14 @@ let config = {
   resolve: {
     extensions: ['', '.js', '.json', '.scss', '.pug', '.html'],
     alias: {
-      img: `${src}/img/`,
-      qlik: `${src}/qlik/qlik`
+      img: `${src}/img/`
     }
   },
-  externals: [{
-    'angular': true,
-    'jquery': true,
-    'qlik': true
-  }],
+  externals: [
+    'angular',
+    'jquery',
+    'js/qlik'
+  ],
   plugins: [
     new WebpackCleanPlugin([BUILD_DIR, ZIP_FILE]),
     new webpack.DefinePlugin({
